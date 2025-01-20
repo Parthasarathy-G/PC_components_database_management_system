@@ -1,4 +1,4 @@
-package Pc_database.Components;
+package pc_database.components;
 public class Gettersetter {
     private int id;
     private String name;

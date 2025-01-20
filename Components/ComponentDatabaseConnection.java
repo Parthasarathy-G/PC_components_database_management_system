@@ -1,5 +1,6 @@
 package Pc_database.Components;
 import Pc_database.DBconnection.DBConnection;
+import Pc_database.Models.Gettersetter;
 
 import java.sql.*;
 import java.util.*;
@@ -92,7 +93,7 @@ public class ComponentDatabaseConnection {
     }
 
     public void removeComponent(Gettersetter gettersetterToRemove) throws Exception {
-        gettersetters.remove(gettersetterToRemove);
+        Statement statement = sl.getConnection().createStatement();
         Statement statement = DBConnection.getConnection().createStatement();
         statement.executeUpdate("DELETE FROM components WHERE id=" + gettersetterToRemove.getId());
         statement.close();
@@ -132,7 +133,7 @@ public class ComponentDatabaseConnection {
         return t1;
     }
 
-    public void addOrderedUserDetails(String orderName, String itemsOrdered, String orderAddress, String orderPhone, double totalPrice,String id) throws Exception {
+        Connection conn = sl.getConnection();
         Connection conn = DBConnection.getConnection();
         PreparedStatement stmt = null;
         try {
@@ -155,7 +156,7 @@ public class ComponentDatabaseConnection {
     }
     public void removeSelectedComponents(ArrayList<Gettersetter> selectedGettersetters) throws Exception {
         Connection conn = null;
-        PreparedStatement ps = null;
+        conn = sl.getConnection();
         conn = DBConnection.getConnection();
         for (Gettersetter gettersetter : selectedGettersetters) {
             String query = "DELETE FROM components WHERE id = ?";

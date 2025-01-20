@@ -75,6 +75,7 @@ public class Main{
                 case "1":
                     pc.displayComponentMenu();
                     forAdmin();
+                    break;
                 case "2":
                     System.out.println();
                     System.out.print("Enter id : ");
@@ -121,31 +122,31 @@ public class Main{
                         System.out.println("Component not found.");
                     } else {
                         System.out.print("Enter new id (or press enter to skip): ");
-                        id = ps.nextInt();
-                        if (id != 0) {
-                            gettersetterToUpdate.setName(String.valueOf(id));
+                        int newId = ps.nextInt();
+                        if (newId != 0) {
+                            gettersetterToUpdate.setName(String.valueOf(newId));
                         }
                         ps.nextLine();
                         System.out.print("Enter new name (or press enter to skip): ");
-                        name = ps.nextLine().trim();
-                        if (!name.isEmpty()) {
-                            gettersetterToUpdate.setName(name);
+                        String newName = ps.nextLine().trim();
+                        if (!newName.isEmpty()) {
+                            gettersetterToUpdate.setName(newName);
                         }
                         System.out.print("Enter new type (or press enter to skip): ");
-                        type = ps.nextLine().trim();
-                        if (!type.isEmpty()) {
-                            gettersetterToUpdate.setType(type);
+                        String newType = ps.nextLine().trim();
+                        if (!newType.isEmpty()) {
+                            gettersetterToUpdate.setType(newType);
                         }
                         System.out.print("Enter new brand (or press enter to skip): ");
-                        brand = ps.nextLine().trim();
-                        if (!brand.isEmpty()) {
-                            gettersetterToUpdate.setBrand(brand);
+                        String newBrand = ps.nextLine().trim();
+                        if (!newBrand.isEmpty()) {
+                            gettersetterToUpdate.setBrand(newBrand);
                         }
                         System.out.print("Enter new price (or press enter to skip): ");
                         String priceString = ps.nextLine().trim();
                         if (!priceString.isEmpty()) {
-                            price = Double.parseDouble(priceString);
-                            gettersetterToUpdate.setPrice(price);
+                            double newPrice = Double.parseDouble(priceString);
+                            gettersetterToUpdate.setPrice(newPrice);
                         }
                         pc.updateComponent(gettersetterToUpdate);
                         System.out.println("Component updated successfully.");
@@ -166,9 +167,9 @@ public class Main{
                     forAdmin();
                     break;
                 case "7":
-                        User();
-                        forAdmin();
-                        break;
+                    User();
+                    forAdmin();
+                    break;
                 case "8":
                     System.out.println();
                     System.out.println("Exiting🚫");
@@ -181,6 +182,7 @@ public class Main{
                             "░░░██║░░░██║░░██║██║░░██║██║░╚███║██║░╚██╗  ░░░██║░░░╚█████╔╝╚██████╔╝\n" +
                             "░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝  ░░░╚═╝░░░░╚════╝░░╚═════╝░");
                     System.exit(0);
+                    break;
                 default:
                     System.out.println();
                     System.out.println("Invalid choice!");
